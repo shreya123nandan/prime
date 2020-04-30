@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+bool prime(int a);
+int main()
+{
+    bool flag = false;
+    int a,i;
+    cout << "Enter a positive integer: ";
+    cin >> a;
+    for(i = 2;i<=a/2;i++)
+    {
+        if (prime(i))
+        {
+            if (prime(a-i))
+            {
+                cout << a << " = " << i << " + " << a-i << endl;
+                flag = true;
+            }
+        }
+    }
+    if (!flag)
+    {
+      cout <<a<< "invalid";
+    }
+    return 0;
+}
+bool prime(int a)
+{
+    int i;
+    bool Prime = true;
+    for(i=2;i<=a/2;i++)
+    {
+        if(a%i==0)
+        {
+            Prime = false;
+            break;
+        }
+    }
+    return Prime;
+}
